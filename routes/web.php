@@ -1,7 +1,13 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ContactsController;
 use Illuminate\Support\Facades\Route;
+
+//Rota de contato
+Route::get('/contatos', [ContactsController::class, 'index']) ->name('contatos.index');
+//Rota Delete
+Route::delete('contatos/{contatoId}', [ContactsController::class, 'delete']) ->name('contatos.delete');
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,5 +27,8 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+Route::get ('/contatos', [ContactsController::class, 'index']) ->name('contatos.index');
+
 
 require __DIR__.'/auth.php';
