@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Contatos;
+//importando o arquivo de validação
+use App\Http\Requests\FormRequestContatos;
  
 class ContatosController extends Controller
 {
@@ -20,10 +22,10 @@ class ContatosController extends Controller
        return back();
     }
  
-    public function create(Request $request)
+    public function create(FormRequestContatos $request)
     {
  
-        //Retornando a view de criação de contatos
+        //condicional para entendimento do envio dos dados para o banco de dados
         if ($request->method() == "POST"){
             $data = $request->all();
             Contatos::create($data);
