@@ -4,7 +4,9 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ContatosController;
 use App\Models\Contatos;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UsuariosController;
 
+//Rota de contato
 route::get('/contatos', [ContatosController::class, 'index'])->name('contatos.index');
 
 //rota delete
@@ -22,8 +24,27 @@ Route::get('/contatos/update/{contatoID}', [ContatosController::class, 'update']
 
 //Rota de Update - método put
  Route::put('/contatos/update/{contatoID}', [ContatosController::class, 'update'])->name('contatos.update.put');
+
+//Rota de contato usuários
+route::get('/usuarios', [UsuariosController::class, 'index'])->name('usuarios.index');
+
+ //rota delete usuários
+Route::delete('/usuarios/{userId}', [UsuariosController::class, 'delete'])->name('usuarios.delete');
  
-Route::get('/', function () {
+//rota create usuários get (mostra a view de criação)
+Route::get('/usuarios/create', [UsuariosController::class, 'create'])->name('usuarios.create.get');
+
+//rota create usuários post (adiciona o contato)
+Route::post('/usuarios/create', [UsuariosController::class, 'create'])->name('usuarios.create.post');
+
+
+//Rota de Update usuários- método get
+Route::get('/usuarios/update/{userID}', [UsuariosController::class, 'update'])->name('usuarios.update.get');
+
+//Rota de Update usuários- método put
+ Route::put('/usuarios/update/{userID}', [usuariosController::class, 'update'])->name('usuarios.update.put');
+ 
+ Route::get('/', function () {
     return view('welcome');
 });
  
