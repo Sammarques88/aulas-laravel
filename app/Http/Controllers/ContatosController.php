@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
  
 use Illuminate\Http\Request;
 use App\Models\Contatos;
+
 //importando o arquivo de validação
 use App\Http\Requests\FormRequestContatos;
  

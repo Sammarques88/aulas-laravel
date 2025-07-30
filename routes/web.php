@@ -51,11 +51,11 @@ Route::get('/usuarios/update/{userID}', [UsuariosController::class, 'update'])->
  
 route::get('/index', function () {
     return view('index');
-});
+    })->middleware(['auth', 'verified'])->name('index');
 
- 
+
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('index');
 })->middleware(['auth', 'verified'])->name('dashboard');
  
 Route::middleware('auth')->group(function () {

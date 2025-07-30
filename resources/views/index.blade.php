@@ -33,6 +33,7 @@
     <!-- CONTINUA... -->
  
     <link href="{{ asset('css/dashboard.css') }}" rel="stylesheet">
+    
  
     <style>
         .bd-placeholder-img {
