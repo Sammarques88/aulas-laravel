@@ -22,23 +22,25 @@
                                 </a> </li>
                         
                                               
-                            <li class="nav-item"> 
-                                
-                            
-                            <form method="POST" action = "{{ route('logout') }}">
-                                @csrf
-                                
-                                <a onclick="event.preventDefault();
 
-                                this.closest('form').submit();"
-                                class="nav-link d-flex align-items-center gap-2" href="#"> <svg
-                                        class="bi" aria-hidden="true">
+
+                             <li class="nav-item"> 
+                                
+                            <form method="POST" action = "{{ route('logout') }}">
+                                @csrf   
+
+                            <a onclick="event.preventDefault(); 
+                            
+                            this.closest('form').submit();" 
+                            class="nav-link d-flex align-items-center gap-2" href="#">
+                            <svg class="bi" aria-hidden="true">
                                         <use xlink:href="#door-closed"></use>
                                     </svg>
                                     Sair
-                                </a>
-                                </form>
-                             </li>
 
+                                </a> 
+                            </form>
+                            </li>
+                             
                         </ul>
                     </div>

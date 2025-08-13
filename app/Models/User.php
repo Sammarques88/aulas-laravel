@@ -47,16 +47,19 @@ class User extends Authenticatable
         ];
     }
 
-        //filtro de pesquisa dados
-public function getFiltrosPaginate(string $search = ''){
-    $dados = $this->where(function ($query) use ($search){
-    if($search) {
-        $query->where('name', $search);
-        $query->orWhere('name', 'LIKE', "%{$search}%");
-        }
-    })->get();
 
+
+
+     //filtro de pesquisa
+    public function getFiltrosPaginate(string $search = ''){
+        $dados = $this->where(function ($query) use ($search){
+            if($search) {
+                $query->where('name', $search);
+                $query->orWhere('name', 'LIKE', "%{$search}%");
+            }
+        })->get();
+        
         return $dados;
     }
-}
 
+}
